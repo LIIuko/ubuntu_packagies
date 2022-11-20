@@ -40,15 +40,15 @@ def get_file_dependencies_part2(url_package, name_catalog):
 
     local_packages = set()
 
-    links_html = soup.select('ul li dl dt a')
+    links_html = soup.select('.uldep li dl dt a')
     for link_html in links_html:
         if link_html.text not in allPackages:
             local_packages.add(link_html)
-            dot.edge(name_catalog, link_html.text)
 
     for el in local_packages:
         if el.text not in allPackages:
             print(el.text)
+            dot.edge(name_catalog, link_html.text)
             get_file_dependencies_part2(el.get('href'), el.text)
     return None
 

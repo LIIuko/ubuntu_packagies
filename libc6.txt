@@ -1,0 +1,5 @@
+digraph "libc6 requirements" {
+	libc6 -> "libgcc-s1"
+	"libgcc-s1" -> libc6
+	libc6 -> "libgcc-s1"
+}
